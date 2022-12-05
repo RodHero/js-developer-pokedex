@@ -239,3 +239,13 @@
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);   
     transition: 0.2s all;
 }
+
+.page {
+    display: none;
+    position: absolute;
+    width: 20rem;
+    height: 10rem;
+    top:20%;
+    left:20%;
+    border: 3px solid #f1f1f1;
+}

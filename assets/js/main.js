@@ -1,5 +1,5 @@
-const pokemonList = document.getElementById('pokemonList')
-const loadMoreButton = document.getElementById('loadMoreButton')
+const pokemonList = document.getElementById('pokemonList');
+const loadMoreButton = document.getElementById('loadMoreButton');
 
 const maxRecords = 151
 const limit = 10
@@ -7,7 +7,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <buttom type="button" onclick="Details()">
+        <buttom type="button" class="card" click="fillModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -25,8 +25,22 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
-function Details () {
-    window.location.href ="details.html"
+function fillModal(pokemon) {
+    let modalHtml = `
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Teste</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+            </div>
+        </div>
+        `;
+
+    document.getElementById('staticBackdrop').innerHTML = modalHtml;
 }
 
 function loadPokemonItens(offset, limit) {
