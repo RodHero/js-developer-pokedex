@@ -7,7 +7,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <buttom type="button" onclick="fillModal(pokemon.name)"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <buttom type="button" onclick="fillModal()"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
