@@ -7,7 +7,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <buttom type="button" class="card" click="fillModal()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <buttom type="button" onclick="fillModal(pokemon.name)"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -26,18 +26,20 @@ function convertPokemonToLi(pokemon) {
 }
 
 function fillModal(pokemon) {
-    let modalHtml = `
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Teste</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-            </div>
+    const modalHtml = `
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+            Teste   
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+    </div>
         `;
 
     document.getElementById('staticBackdrop').innerHTML = modalHtml;
