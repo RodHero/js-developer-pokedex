@@ -1,13 +1,18 @@
 const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
+const nome = document.getElementById('staticBackdropLabel');
+const tipo = document.getElementById('tipo')
+const imagem = document.getElementById('imagem')
+
 
 const maxRecords = 151
 const limit = 10
 let offset = 0;
 
+
 function convertPokemonToLi(pokemon) {
     return `
-        <buttom type="button" onclick="fillModal()"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <buttom type="button" id="lista" onClick="renderPoke(${pokemon.number})"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -25,24 +30,24 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
-function fillModal(pokemon) {
-    const modalHtml = `
-    <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            Teste   
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-             <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-    </div>
-        `;
+async function fetchPokemon(numero) {
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${numero}`);
+    const dados = await resposta.json();
+    return dados;
+}
 
-    document.getElementById('staticBackdrop').innerHTML = modalHtml;
+async function renderPoke(numero) {
+    const dados = await fetchPokemon(numero) || {};
+    if (dados) {
+        nome.innerHTML = "#"+dados.id+" "+dados.name;
+        tipo.innerHTML = dados['type'];
+        imagem.innerHTML = dados['sprites'];
+
+        
+    }
+    else {
+        nome.innerHTML = 'Not found :c';
+    }
 }
 
 function loadPokemonItens(offset, limit) {
@@ -67,3 +72,6 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+
+
