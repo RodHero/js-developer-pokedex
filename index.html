@@ -42,17 +42,36 @@
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" id="cabeça">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">...</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <span id="tipo"></span>
-                        <span id ="imagem"> </span>  
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                    <div class="modal-body" id="back">
+                        <div class="logo">
+                            <img src="#" alt="" id="imagem">
+                        </div>
+                        <div class="stats" id="sts">
+                            <div class="tipos" id="tipo">
+                                <span id="tipo1"></span>
+                                <span id="tipo2"></span>
+                            </div>
+                            <div class="carac" id="charac">
+                                <span id="peso"></span>
+                                <span id="altura"></span>
+                            </div>
+                            <div class="moves1" id="mov1">
+                                <span id="hp"></span>
+                                <span id="att"></span>
+                                <span id="def"></span>
+                            </div>
+                            <div class="moves2" id="mov2">
+                                <span id="satt"></span>
+                                <span id="sdef"></span>
+                                <span id="spd"></span>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="modal-footer" id="rodape">
+                    <button type="button" id="fechar" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
